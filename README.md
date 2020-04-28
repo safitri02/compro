@@ -1,6 +1,7 @@
-Company profile sekolah
+Sistem Akademik Sekolah
+ini script kemaren yg disuruh ngeshare pak guru, silahkan dikembangin lagi
 
-Silahkan bisa dikembangkan lagi, ini adalah projek ujian
-Pra prakerin waktu kelas 11. Karena keterbatasan waktu(cuma semalem)
-jadi hasilnya pun singkat seperti ini. 
+
+KHUSUSON XI RPL 3!!!!!
+untuk username n password nanti tak share di grup aja
 
