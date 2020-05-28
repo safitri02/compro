@@ -1,5 +1,5 @@
-Sistem Akademik Sekolah
-ini script kemaren yg disuruh ngeshare pak guru, silahkan dikembangin lagi
+Siakad + compro.
+ini sc yg semalem jadi kemaren. silahkan dikembangin lagi ya man teman...
 
 
 KHUSUSON XI RPL 3!!!!!
