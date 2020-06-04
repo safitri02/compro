@@ -1,9 +1,6 @@
 <?php  
 session_start();
 
-if (!$_SESSION['status']) {
-  header('location:login.php');
-}
 
 include 'koneksi.php';
 
@@ -44,7 +41,7 @@ if (isset($_POST["submit"])) {
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
 		<div class="container">
-			<a class="navbar-brand text-white" href="#"><strong>COM-PRO SMK UFA</strong></a>
+			<a class="navbar-brand text-white" href="#"><strong>SI-AKAD SMK UFA</strong></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -67,7 +64,7 @@ if (isset($_POST["submit"])) {
 					</li>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link  ml-3 text-white" href="keluar.php"> KELUAR</a>
+						<a class="nav-link  ml-3 text-white" href="keluar.php"> LOGIN</a>
 					</li>
 				</ul>
 			</div>
@@ -235,11 +232,11 @@ if (isset($_POST["submit"])) {
 	<hr>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-7 mx-auto">
 				<form action="" method="post">
 				<div class="form-group">
 					<label><strong>Nama Lengkap</strong></label>
-					<input type="text" name="nama" class="form-control bg-light" autocomplete="off" required="">
+					<input type="text" name="nama"  class="form-control bg-light" autocomplete="off" required="">
 				</div>
 				<div class="form-group">
 					<label><strong>Email</strong></label>
@@ -250,7 +247,7 @@ if (isset($_POST["submit"])) {
 					<textarea type="text" name="pesan" class="form-control bg-light" required="" autocomplete="off" rows="4"></textarea>
 				</div>
 
-				<button type="submit"  name="submit" class="btn btn-info">KIRIM PESAN</button>
+				<button type="submit"  name="submit" class="btn btn-info float-right">KIRIM PESAN</button>
 			</div>
 			<!-- <div class="col-md-5 mt-4">
 				<img src="image/arif.png" width="108%" height="%">
@@ -263,7 +260,7 @@ if (isset($_POST["submit"])) {
 	<footer class="mt-5 bg-dark">
 		<div class="container">
 			<div class="row text-white p-4 text-center" align="center">
-				<div class="col-md-12 fixed-bottom" >
+				<div class="col-md-12 ">
 					&copy; 2020 | Safitri
 				</div>
 			</div>

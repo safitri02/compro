@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2020 at 01:24 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Apr 22, 2020 at 04:18 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -105,7 +105,30 @@ CREATE TABLE `tb_jurusan` (
 INSERT INTO `tb_jurusan` (`id_jurusan`, `kode_jurusan`, `jurusan`) VALUES
 (1, 'KJ0001', 'Rekayasa Perangkat Lunak'),
 (2, 'KJ0002', 'Teknik Komputer Dan Jaringan'),
-(10, 'KJ0003', 'Miyang');
+(10, 'KJ0003', 'Miyang'),
+(12, 'KJ0005', 'jhui');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_kalas`
+--
+
+CREATE TABLE `tb_kalas` (
+  `id_kelas` int(10) NOT NULL,
+  `id_guru` int(10) NOT NULL,
+  `kelas` varchar(100) NOT NULL,
+  `wali_kelas` varchar(100) NOT NULL,
+  `jumlah_murid` varchar(100) NOT NULL,
+  `kondisi` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_kalas`
+--
+
+INSERT INTO `tb_kalas` (`id_kelas`, `id_guru`, `kelas`, `wali_kelas`, `jumlah_murid`, `kondisi`) VALUES
+(1, 1, 'XI RPL 3', 'Nur Mujahaddah', '28', 'Normal');
 
 -- --------------------------------------------------------
 
@@ -138,7 +161,8 @@ CREATE TABLE `tb_siswa` (
 --
 
 INSERT INTO `tb_siswa` (`id_siswa`, `nisn`, `nama`, `alamat`, `id_jurusan`) VALUES
-(1, '07798730002', 'Safitriiiiiiiiiii', 'Rembang Kota', 1);
+(1, '07798730002', 'Safitriiiiiiiiiii', 'Rembang Kota', 1),
+(2, '34834345', 'sbdjabj', 'rembang', 10);
 
 -- --------------------------------------------------------
 
@@ -160,7 +184,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `level`, `nama`, `username`, `password`) VALUES
 (1, 'user', 'Safitri', 'fitri', '534a0b7aa872ad1340d0071cbfa38697'),
-(2, 'admin', 'Fitri', 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(2, 'admin', 'Fitri', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(3, 'admin', 'gedang goreng', 'gedang', 'ce353be5854a222f94ad7bebe2c32dcc');
 
 --
 -- Indexes for dumped tables
@@ -189,6 +214,13 @@ ALTER TABLE `tb_jk`
 --
 ALTER TABLE `tb_jurusan`
   ADD PRIMARY KEY (`id_jurusan`);
+
+--
+-- Indexes for table `tb_kalas`
+--
+ALTER TABLE `tb_kalas`
+  ADD PRIMARY KEY (`id_kelas`),
+  ADD KEY `id_guru` (`id_guru`);
 
 --
 -- Indexes for table `tb_mapel`
@@ -235,7 +267,13 @@ ALTER TABLE `tb_jk`
 -- AUTO_INCREMENT for table `tb_jurusan`
 --
 ALTER TABLE `tb_jurusan`
-  MODIFY `id_jurusan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_jurusan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `tb_kalas`
+--
+ALTER TABLE `tb_kalas`
+  MODIFY `id_kelas` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_mapel`
@@ -247,13 +285,29 @@ ALTER TABLE `tb_mapel`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_siswa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tb_kalas`
+--
+ALTER TABLE `tb_kalas`
+  ADD CONSTRAINT `tb_kalas_ibfk_1` FOREIGN KEY (`id_guru`) REFERENCES `tb_guru` (`id_guru`);
+
+--
+-- Constraints for table `tb_siswa`
+--
+ALTER TABLE `tb_siswa`
+  ADD CONSTRAINT `tb_siswa_ibfk_1` FOREIGN KEY (`id_jurusan`) REFERENCES `tb_jurusan` (`id_jurusan`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

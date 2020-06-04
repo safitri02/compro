@@ -176,9 +176,25 @@ if (!$_SESSION['status']) {
                   include 'jurusan/edit_jurusan.php';
                   break;
 
+                  case 'kelas':
+                  include 'kelas/kelas.php';
+                  break;
+
+                  case 'tambah_kelas':
+                  include 'kelas/tambah_kelas.php';
+                  break;
+                  
+                  case 'edit_kelas':
+                  include 'kelas/edit_kelas.php';
+                  break;
+
+                  case 'hapus_kelas':
+                  include 'kelas/hapus_kelas.php';
+                  break;
+                  
 
                 default:
-              
+                    include'home.php';
                   break;
             }
               }

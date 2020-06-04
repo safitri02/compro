@@ -1,8 +1,11 @@
-<?php 
-
+<?php  
 include '../koneksi.php';
 
+$sql= mysqli_query($koneksi, "SELECT * FROM tb_kelas");
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,43 +34,41 @@ include '../koneksi.php';
 	<div class="container-fluid">
 		<!-- Page Heading -->
 		<div class="clearfix">
-			<h1 class="h3 mb-4 text-gray-800 float-left">Data Guru</h1>
-			<a href="index2.php?menu=tambah_guru" class="btn btn-primary btn-sm float-right"><i class="fas fa-plus"> </i> Tambah Data</a>
+			<h1 class="h3 mb-4 text-gray-800 float-left">Data Kelas</h1>
+			<a href="index2.php?menu=tambah_kelas" class="btn btn-primary btn-sm float-right"><i class="fas fa-plus"> </i> Tambah Data</a>
 		</div>
 		<div class="card">
-			<div class="card-header"> Daftar Guru </div>
+			<div class="card-header"> Data Kelas</div>
 			<div class="card-body">
 				<div class="table-responsive">
 					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<tr>
 								<th> No </th>
-								<th> Kode Guru </th>
-								<th> Nama Guru </th>
-								<th> NIP </th>
-								<th> Alamat </th>
+								<th> Kelas </th>
+								<th> Wali Kelas </th>
+								<th> Jumlah Murid </th>
+								<th> Kondisi</th>
 								<th> Aksi </th>
 							</tr>
 						</thead>
-							<?php  
-									$no= 1;
-									$sql= mysqli_query($koneksi, "SELECT * FROM tb_guru");
+						<?php 
 
-									while ($data= mysqli_fetch_assoc($sql)) : ?>
+							while ($data= mysqli_fetch_assoc($sql)) : ?>
 						<tbody>
 								<tr>
 									<td> <?= $no++; ?> </td>
-									<td>  <?= $data["kode_guru"]; ?> </td>
-									<td>  <?= $data["nama_guru"]; ?> </td>
-									<td>  <?= $data["nip"]; ?> </td>
-									<td>  <?= $data["alamat"]; ?> </td>
+									<td> <?= $data["kelas"]; ?> </td>
+									<td> <?= $data["wali_kelas"]; ?> </td>
+									<td> <?= $data["jumlah_murid"];  ?> </td>
+									<td> <?= $data["kondisi"];  ?> </td>
 									<td>
-										<a href="index2.php?menu=edit_guru&id_guru= <?= $data["id_guru"]; ?>" class="btn btn-sm btn-success"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;Ubah</a>
-										<a href="index2.php?menu=hapus_guru&id_guru= <?= $data["id_guru"]; ?>" class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Hapus</a>
+										<a href="index2.php?menu=edit_kelas&id_kelas= <?= $data["id_kelas"]; ?>" class="btn btn-sm btn-success"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;Ubah</a>
+										<a href="index2.php?menu=hapus_guru&id_guru= <?= $data["id_kelas"]; ?>" class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Hapus</a>
 									</td>
 								</tr>
 						</tbody>
-					<?php endwhile; ?>
+				<?php endwhile; ?>
 					</table>
 				</div>
 			</div>
